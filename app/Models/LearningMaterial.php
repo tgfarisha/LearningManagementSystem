@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class LearningMaterial extends Model
 {
@@ -15,4 +16,8 @@ class LearningMaterial extends Model
         'materialDocument',
         'materialPublished',
     ];
+
+    public function learningMaterial(): BelongsTo {
+        return $this->belongsTo(User::class);
+    }
 }
