@@ -8,13 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Announcement extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'Staff_ID',
-        'UnitSubject_ID',
+        'user_id',
         'announcementTitle',
         'announcementDetails',
         'announcementStatus',
-        'announcementPublished'
+        'announcementPublished',
     ];
 }

@@ -10,8 +10,8 @@ class SubmissionScript extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Student_ID',
-        'Submission_ID',
+        'user_id',
+        'submission_id',
         'submissionStatus',
         'submissionFileName',
         'submissionDocument',

@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('submission_scripts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('submissionStatus');
+            $table->string('submissionFileName');
+            $table->string('submissionDocument');
             $table->timestamps();
         });
     }

@@ -10,7 +10,7 @@ class Submission extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Staff_ID',
+        'user_id',
         'submissionName',
         'submissionMode',
         'submissionDue',

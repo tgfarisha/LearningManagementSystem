@@ -10,10 +10,9 @@ class LearningMaterial extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Staff_ID',
+        'user_id',
         'materialTitle',
         'materialDocument',
-        'materialCreatedDate',
         'materialPublished',
     ];
 }

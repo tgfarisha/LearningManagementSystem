@@ -10,8 +10,8 @@ class Discussion extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Student_ID',
-        'Subject_ID',
+        'user_id',
+        'subject_id',
         'discussionTitle',
         'discussionDetails',
     ];

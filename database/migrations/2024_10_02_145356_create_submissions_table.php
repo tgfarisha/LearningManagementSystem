@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('submissions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('submissionName');
+            $table->string('submissionMode');
+            $table->date('submissionDue');
+            $table->time('submissionTime');
+            $table->string('submissionDescription', 50);
+            $table->string('submissionPublished');
             $table->timestamps();
         });
     }

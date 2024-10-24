@@ -10,10 +10,9 @@ class Assignment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Staff_ID',
+        'user_id',
         'assignmentTitle',
         'assignmentDocument',
-        'assignmentCreatedDate',
         'assignmentPublished',
     ];
 }

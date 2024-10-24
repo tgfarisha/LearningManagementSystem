@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('learning_materials', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('materialTitle');
+            $table->string('materialDocument');
+            $table->string('materialPublished');
             $table->timestamps();
         });
     }
