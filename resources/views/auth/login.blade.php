@@ -5,23 +5,23 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
-        <!-- Email Address -->
+        <!-- Identification Number -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <x-input-label for="userIC" :value="__('Identification Number')" />
+            <x-text-input id="userIC" class="block mt-1 w-full" type="text" name="userIC" :value="old('userIC')" required autofocus autocomplete="userIC" />
+            <x-input-error :messages="$errors->get('userIC')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="userPassword" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-text-input id="userPassword" class="block mt-1 w-full"
                             type="password"
-                            name="password"
+                            name="userPassword"
                             required autocomplete="current-password" />
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <x-input-error :messages="$errors->get('userPassword')" class="mt-2" />
         </div>
 
         <!-- Remember Me -->

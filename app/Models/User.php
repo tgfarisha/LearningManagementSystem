@@ -20,8 +20,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'Role_ID',
-        'Unit_ID',
+        'role_id',
+        'unit_id',
         'userName',
         'userIC',
         'userGender',
@@ -92,9 +92,9 @@ class User extends Authenticatable
         return $this->hasMany(LearningMaterial::class);
     }
 
-    public function subjects(): HasMany {
-        return $this->hasMany(Subject::class);
-    }
+    // public function subjects(): HasMany {
+    //     return $this->hasMany(Subject::class);
+    // }
 
     public function subjectLecturers(): HasMany {
         return $this->hasMany(SubjectLecturer::class);
