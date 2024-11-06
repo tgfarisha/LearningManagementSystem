@@ -23,13 +23,13 @@ class User extends Authenticatable
         'role_id',
         'unit_id',
         'userName',
-        'userIC',
+        'ic',
         'userGender',
-        'userEmail',
+        'email',
         'userContact',
         'userStaffID',
         'userStudentID',
-        'userPassword',
+        'password',
         'userPhoto',
     ];
 

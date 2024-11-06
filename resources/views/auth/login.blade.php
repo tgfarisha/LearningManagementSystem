@@ -1,47 +1,58 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@extends('layouts.guest')
 
-    <form method="POST" action="{{ route('login') }}">
+@section('guest')
+
+<div class="flex items-center justify-center min-h-screen">
+    <form method="POST" action="{{ route('login') }}" class="p-6 bg-white rounded-xl shadow-lg transition-transform transform hover:scale-105 w-full max-w-md">
         @csrf
 
-        <!-- Identification Number -->
-        <div>
-            <x-input-label for="userIC" :value="__('Identification Number')" />
-            <x-text-input id="userIC" class="block mt-1 w-full" type="text" name="userIC" :value="old('userIC')" required autofocus autocomplete="userIC" />
-            <x-input-error :messages="$errors->get('userIC')" class="mt-2" />
+        <div class="flex items-center mb-6 ml-4">
+            <!-- Logo Image -->
+            <img src="{{ asset('asset/photo/logoipg.png') }}" alt="IPG Logo" width="70" height="80" class="mr-4">
+
+            <!-- Title, aligned to the left -->
+            <div class="text-left">
+                <h2 class="text-2xl text-gray-800">Welcome To</h2>
+                <h2 class="text-3xl text-gray-800">IPGKI-edu Gather</h2>
+            </div>
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="userPassword" :value="__('Password')" />
-
-            <x-text-input id="userPassword" class="block mt-1 w-full"
-                            type="password"
-                            name="userPassword"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('userPassword')" class="mt-2" />
+        <div class="mb-3">
+            <label for="userIC" class="block text-gray-700 font-semibold">{{ __('Identity Card Number') }}</label>
+            <input id="userIC" type="text" name="ic" value="{{ old('userIC') }}" required autocomplete="userIC" autofocus
+                class="mt-2 form-control block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all @error('userIC') border-red-500 @enderror">
+            @error('userIC')
+            <span class="text-xs text-red-500 mt-1">{{ $message }}</span>
+            @enderror
         </div>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
+        <div class="mb-4">
+            <label for="userPassword" class="block text-gray-700 font-semibold">{{ __('Password') }}</label>
+            <input id="userPassword" type="password" name="password" required autocomplete="current-password"
+                class="mt-2 form-control block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all @error('userPassword') border-red-500 @enderror">
+            @error('userPassword')
+            <span class="text-xs text-red-500 mt-1">{{ $message }}</span>
+            @enderror
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="mb-6 flex items-center">
+            <input id="remember" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}
+                class="h-5 w-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500">
+            <label for="remember" class="ml-2 text-sm text-gray-700">{{ __('Remember Me') }}</label>
+        </div>
+
+        <div class="flex items-center justify-between mb-6">
+            <button type="submit" class="btn btn-primary w-full py-2 bg-blue-600 text-white font-medium rounded-lg shadow hover:bg-blue-500 transition-all focus:outline-none focus:ring-2 focus:ring-blue-400">
+                {{ __('Login') }}
+            </button>
+        </div>
+
+        <div class="text-center">
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
+            <a href="{{ route('password.request') }}" class="text-sm text-blue-600 hover:underline transition-all">{{ __('Forgot Password?') }}</a>
             @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</div>
+
+@endsection

@@ -1,109 +1,209 @@
-<header class="header" role="banner">
-  <h1 class="logo">
-    <a href="#">Terence <span>Devine</span></a>
-  </h1>
-  <div class="nav-wrap">
-    <nav class="main-nav" role="navigation">
-      <ul class="unstyled list-hover-slide">
-        <li><a href="#">About</a></li>
-        <li><a href="#">Work</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Blog</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
 <style>
-*, :before, :after {
-  box-sizing: border-box;
-}
+    /* Sidebar Styling */
+    .sidebar {
+        width: 200px;
+        height: 100vh;
+        background-color: #ffffff;
+        position: fixed;
+        top: 0;
+        /* Ensures it's always at the top */
+        padding-top: 20px;
+        font-family: Arial, sans-serif;
+        z-index: 10;
+        /* Keeps sidebar above content */
+    }
 
-/* FONTS */
-.sans {
-  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-}
+    .sidebar h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
 
-/* COLORS */
-.orange { color: #DF4500; }
-.gray { color: #35302D; }
-.gray-shine { color: #3C3735; }
-.white-off { color: #DFDBD9; }
+    .sidebar img {
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
 
-/* REUSABLE STYLES */
-.unstyled {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.unstyled a {
-  text-decoration: none;
-}
+    .sidebar .menu-item {
+        list-style-type: none;
+        padding: 0;
+    }
 
-.list-inline {
-  overflow: hidden;
-}
-.list-inline li {
-  float: left;
-}
+    .sidebar .menu-item a {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+        transition: 0.3s;
+    }
 
-/* HEADER STYLES */
-.header {
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 17.5em;
-  background: #FFFFFF; /* Sidebar background to white */
-  border-right: 2px solid #DFDBD9; /* Added border to the sidebar */
-}
+    .sidebar .menu-item a:hover {
+        background-color: #ddd;
+    }
 
-.logo {
-  font-weight: 300;
-  font-size: 2em;
-  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-}
-.logo a {
-  display: block;
-  padding: 1em 0;
-  color: #000000; /* Logo font color to black */
-  text-decoration: none;
-}
-.logo span {
-  font-weight: 700;
-}
+    .sidebar .menu-item a i {
+        margin-right: 10px;
+    }
 
-/* MAIN NAV */
-.main-nav ul {
-  border-top: solid 1px #DFDBD9;
-}
-.main-nav li {
-  border-bottom: solid 1px #DFDBD9;
-}
-.main-nav a {
-  padding: 1.1em 0;
-  color: #000000; /* Main nav font color to black */
-  font-weight: 400;
-  font-size: 1.125em;
-  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-  text-align: center;
-}
+    .sidebar .menu-item .dropdown {
+        cursor: pointer;
+        position: relative;
+    }
 
-/* REMOVE HOVER SLIDE EFFECT */
-.list-hover-slide li {
-  position: relative;
-  overflow: hidden;
-}
-.list-hover-slide a {
-  display: block;
-  position: relative;
-  z-index: 1;
-}
-.list-hover-slide a:before {
-  content: '';
-  display: none; /* Disabled the hover slide effect */
-}
+    .sidebar .menu-item .dropdown-content {
+        display: none;
+        padding-left: 20px;
+        background-color: #ffffff;
+        border-left: 2px solid #eaeaea;
+    }
+
+    .sidebar .menu-item .dropdown-content a {
+        display: block;
+        padding: 8px 0;
+        font-size: 14px;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .sidebar .menu-item .dropdown-content a:hover {
+        background-color: #f0f0f0;
+    }
+
+    .sidebar .menu-item .dropdown:hover .dropdown-content {
+        display: block;
+    }
 </style>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <div class="row" style="background-image:url('asset/photo/lecturerbackground.png');">
+        <p style="margin-left: 20px; margin-top: 100px;">TSLB1104<br><br>Grammar in Context</p>
+    </div>
+
+    <ul class="menu-item">
+        <li class="dropdown">
+            <a href="#"><i>📢</i> Announcement</a>
+            <div class="dropdown-content">
+                <a href="#">Announcement List</a>
+                <a href="#">Add Announcement</a>
+            </div>
+        </li>
+        <li><a href="#"><i>📚</i> Learning Material</a></li>
+        <li class="dropdown">
+            <a href="#"><i>📝</i> Assignment</a>
+            <div class="dropdown-content">
+                <a href="#">Assignment List</a>
+                <a href="#">Submission</a>
+            </div>
+        </li>
+        <li><a href="#"><i>💬</i> Discussion</a></li>
+        <li><a href="#"><i>📊</i> Report</a></li>
+    </ul>
+</div>
+
+<!-- <style>
+    /* Sidebar Styling */
+    .sidebar {
+        width: 200px;
+        height: 100vh;
+        background-color: #ffffff;
+        position: fixed;
+        top: 0;
+        /* Ensures it's always at the top */
+        padding-top: 20px;
+        font-family: Arial, sans-serif;
+        z-index: 10;
+        /* Keeps sidebar above content */
+    }
+
+    .sidebar h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .sidebar img {
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .sidebar .menu-item {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .sidebar .menu-item a {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .sidebar .menu-item a:hover {
+        background-color: #ddd;
+    }
+
+    .sidebar .menu-item a i {
+        margin-right: 10px;
+    }
+
+    .sidebar .menu-item .dropdown {
+        cursor: pointer;
+        position: relative;
+    }
+
+    .sidebar .menu-item .dropdown-content {
+        display: none;
+        padding-left: 20px;
+        background-color: #ffffff;
+        border-left: 2px solid #eaeaea;
+    }
+
+    .sidebar .menu-item .dropdown-content a {
+        display: block;
+        padding: 8px 0;
+        font-size: 14px;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .sidebar .menu-item .dropdown-content a:hover {
+        background-color: #f0f0f0;
+    }
+
+    .sidebar .menu-item .dropdown:hover .dropdown-content {
+        display: block;
+    }
+</style> -->
+<!-- Sidebar -->
+<!-- <div class="sidebar">
+    <div class="row" style="background-image:url('asset/photo/studentbackground.jpg');">
+        <p style="margin-left: 20px; margin-top: 100px;">TSLB1104<br><br>Grammar in Context</p>
+    </div>
+
+    <ul class="menu-item">
+        <li><a href="#"><i>📢</i> Announcement</a></li>
+        <li><a href="#"><i>📚</i> Learning Material</a></li>
+        <li class="dropdown">
+            <a href="#"><i>📝</i> Assignment</a>
+            <div class="dropdown-content">
+                <a href="#">Assignment List</a>
+                <a href="#">Submission</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="#"><i>💬</i> Discussion</a>
+            <div class="dropdown-content">
+                <a href="#">Discussion List</a>
+                <a href="#">My Discussion</a>
+            </div>
+        </li>
+    </ul>
+</div> -->

@@ -16,14 +16,14 @@ return new class extends Migration
             $table->foreignId('role_id'); //Role ID
             $table->foreignId('unit_id')->nullable();
             $table->string('userName'); //User full name
-            $table->string('userIC', 12)->unique();
+            $table->string('ic', 12);
             $table->string('userGender');
-            $table->string('userEmail')->unique();
+            $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('userContact', 12);
             $table->string('userStaffID')->nullable();
             $table->string('userStudentID')->nullable();
-            $table->string('userPassword');
+            $table->string('password');
             $table->string('userPhoto')->nullable();
             $table->rememberToken();
             $table->timestamps();

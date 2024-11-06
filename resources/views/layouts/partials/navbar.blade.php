@@ -1,8 +1,8 @@
-<nav class="navbar fixed-top" style="background-color: aliceblue; min-height: 100px;">
+<nav class="navbar fixed-top" style="background-color: #89BFDD; min-height: 100px;">
     <div class="container-fluid">
         <div class="d-flex align-items-center">
             <a class="navbar-brand ms-md-3" href="/home">
-                <img src="{{ asset('asset/photo/logoipg.png') }}" alt="ipg.jpeg" width="70" height="80">
+                <img src="{{ asset(path: 'asset/photo/logoipg.png') }}" alt="ipg.jpeg" width="70" height="80">
             </a>
         </div>
         <p class="h4 text-dark">IPGKI-edu Gather</p>

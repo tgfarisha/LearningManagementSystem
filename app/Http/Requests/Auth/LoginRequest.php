@@ -27,8 +27,8 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'userIC' => ['required', 'string'],
-            'userPassword' => ['required', 'string'],
+            'ic' => ['required', 'string'],
+            'password' => ['required', 'string'],
         ];
     }
 
@@ -42,13 +42,14 @@ class LoginRequest extends FormRequest
         $this->ensureIsNotRateLimited();
 
         // Attempt to authenticate with the correct field names
-        if (! Auth::attempt($this->only('userIC', 'userPassword'), $this->boolean('remember'))) {
+        if (! Auth::attempt($this->only('ic', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
-
+        
             throw ValidationException::withMessages([
-                'userIC' => trans('auth.failed'),
+                'ic' => trans('auth.failed'),
             ]);
         }
+        
 
         RateLimiter::clear($this->throttleKey());
     }

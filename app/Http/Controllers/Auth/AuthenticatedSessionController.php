@@ -24,12 +24,22 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        // Authenticate the user
         $request->authenticate();
 
+        // If the authentication fails, we should not proceed with the redirect
+        if (!Auth::check()) {
+            return back()->withErrors([
+                'ic' => 'Invalid credentials provided.'
+            ]);
+        }
+
+        // Regenerate the session after successful authentication
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        return redirect()->intended(route('dashboard'));
     }
+
 
     /**
      * Destroy an authenticated session.
@@ -42,6 +52,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route(route: 'login');
     }
 }
